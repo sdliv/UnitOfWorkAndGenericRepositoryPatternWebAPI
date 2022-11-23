@@ -1,4 +1,6 @@
 ﻿using DataAccessEF;
+using DataAccessEF.UnitOfWork;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 // Register services here
 builder.Services.AddDbContext<PeopleContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 
 

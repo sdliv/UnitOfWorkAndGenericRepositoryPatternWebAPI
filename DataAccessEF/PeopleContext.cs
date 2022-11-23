@@ -1,15 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Domain;
-namespace DataAccessEF;
-public class PeopleContext: DbContext
+namespace DataAccessEF
 {
-    public PeopleContext(DbContextOptions options) : base(options) { }
+    public class PeopleContext : DbContext
+    {
+        public PeopleContext(DbContextOptions options) : base(options) { }
 
-    public DbSet<Person> Person { get; set; }
+        public DbSet<Person> Person { get; set; }
 
-    public DbSet<Address> Address { get; set; }
+        public DbSet<Address> Address { get; set; }
 
-    public DbSet<Email> Email { get; set; }
+        public DbSet<Email> Email { get; set; }
 
+    }
 }
-
